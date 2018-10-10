@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val adapter = BasicListAdapter()
+        val adapter = BasicListAdapter(R.layout.cell_basic_1)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
 
