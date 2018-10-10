@@ -1,4 +1,4 @@
-package com.robpridham.compoundrecyclerviewtest
+package com.bbc.sounds.compoundrecyclerviewtest
 
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
@@ -12,8 +12,7 @@ class BasicViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val textView: TextView = view.text_view
 }
 
-class BasicListAdapter(@LayoutRes val layout: Int) : RecyclerView.Adapter<BasicViewHolder>() {
-
+class BasicListAdapterImpl(@LayoutRes val layout: Int, val prefixText: String) : BasicListAdapter<BasicViewHolder>() {
     private val itemCount = 60
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasicViewHolder {
@@ -27,7 +26,7 @@ class BasicListAdapter(@LayoutRes val layout: Int) : RecyclerView.Adapter<BasicV
     }
 
     override fun onBindViewHolder(holder: BasicViewHolder, position: Int) {
-        holder.textView.text = "Basic item position ${position + 1}"
+        val displayPosition = position + 1
+        holder.textView.text = "$prefixText $displayPosition"
     }
-
 }
